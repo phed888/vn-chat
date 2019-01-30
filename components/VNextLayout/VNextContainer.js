@@ -7,22 +7,29 @@ import PaneBot from './PaneBot';
 export default class VNextContainer extends Component {
   constructor(props) {
     super(props);
-    this.testFunc = this.testFunc.bind(this);
+
+    this.chatInput = this.chatInput.bind(this);
+    this.botInput = this.botInput.bind(this);
+
     this.state = {
       test: ''
     };
   }
 
-  testFunc = test => {
-    console.log(test);
+  chatInput = test => {
+    console.log('from chat pane ' + test);
+  };
+
+  botInput = test => {
+    console.log('from bot pane ' + test);
   };
 
   render() {
     return (
       <Container>
         <PaneCustomer />
-        <PaneChat />
-        <PaneBot testFunc={this.testFunc} />
+        <PaneChat chatInput={this.chatInput} />
+        <PaneBot botInput={this.botInput} />
       </Container>
     );
   }
@@ -31,4 +38,5 @@ export default class VNextContainer extends Component {
 const Container = styled.div`
   display: grid;
   grid-template-columns: 24% 38% 38%;
+  height: calc(100vh - 140px);
 `;
