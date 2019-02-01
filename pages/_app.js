@@ -47,6 +47,12 @@ const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: border-box;
   }
+  #__next {
+    display: grid;
+    grid-template-rows: 60px 52px auto;
+    align-content: stretch;
+    height: 100%
+  }
 `;
 
 export default MyApp;
