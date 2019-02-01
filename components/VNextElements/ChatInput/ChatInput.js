@@ -16,7 +16,7 @@ class ChatInput extends Component {
 
   submitChange = event => {
     event.preventDefault();
-    this.props.chatInput(this.state.textInput);
+    this.props.chatInput(this.state.textInput, this.props.inputType);
     this.setState({ textInput: '' });
   };
 
