@@ -16,8 +16,12 @@ export default class VNextContainer extends Component {
     };
   }
 
-  chatInput = test => {
-    console.log('from chat pane ' + test);
+  chatInput = (test, type) => {
+    if (type === 'bot') {
+      console.log('from bot pane ' + test);
+    } else {
+      console.log('from chat pane ' + test);
+    }
   };
 
   botInput = test => {
@@ -29,7 +33,7 @@ export default class VNextContainer extends Component {
       <Container>
         <PaneCustomer />
         <PaneChat chatInput={this.chatInput} />
-        <PaneBot botInput={this.botInput} />
+        <PaneBot chatInput={this.chatInput} />
       </Container>
     );
   }
@@ -38,5 +42,4 @@ export default class VNextContainer extends Component {
 const Container = styled.div`
   display: grid;
   grid-template-columns: 24% 38% 38%;
-  height: calc(100vh - 140px);
 `;
