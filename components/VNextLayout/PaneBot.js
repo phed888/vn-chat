@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ChatPane from '../utilities/globalStyles/ChatPane';
 import PaneHeader from '../utilities/globalStyles/PaneHeader';
 import ChatBot from '../icons/ChatBot';
-import BotInput from '../VNextElements/ChatInput/BotInput';
+import ChatInput from '../VNextElements/ChatInput/ChatInput';
 import Conversation from '../VNextElements/Conversation';
 
 export default class PaneBot extends Component {
@@ -21,10 +21,11 @@ export default class PaneBot extends Component {
           </div>
         </PaneHeader>
         <Conversation />
-        <BotInput
+        <ChatInput
           submitTitle="Go"
           inputPlaceholder="Placeholder text..."
-          botInput={this.props.botInput}
+          chatInput={this.props.chatInput}
+          inputType="bot"
         />
       </ChatPane>
     );

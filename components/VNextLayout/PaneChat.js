@@ -23,6 +23,7 @@ export default class PaneChat extends Component {
           submitTitle="Go"
           inputPlaceholder="Placeholder text..."
           chatInput={this.props.chatInput}
+          inputType="chat"
         />
       </ChatPane>
     );
