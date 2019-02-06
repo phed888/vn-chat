@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import ChatPane from '../utilities/globalStyles/ChatPane';
-import PaneHeader from '../utilities/globalStyles/PaneHeader';
-import ChatInput from '../VNextElements/ChatInput/ChatInput';
-import Conversation from '../VNextElements/Conversation';
+import React, { Component } from "react";
+import ChatPane from "../utilities/globalStyles/ChatPane";
+import PaneHeader from "../utilities/globalStyles/PaneHeader";
+import ChatInput from "../VNextElements/ChatInput/ChatInput";
+import Conversation from "../VNextElements/Conversation";
 
 export default class PaneChat extends Component {
   handleClick = () => {
-    this.props.testFunc('Bloop');
+    this.props.testFunc("Bloop");
   };
 
   render() {
@@ -18,7 +18,7 @@ export default class PaneChat extends Component {
             <p className="subtitle">Have a trip or service question?</p>
           </div>
         </PaneHeader>
-        <Conversation />
+        <Conversation convers={this.props.custConvers} />
         <ChatInput
           submitTitle="Go"
           inputPlaceholder="Placeholder text..."
