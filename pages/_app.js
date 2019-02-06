@@ -1,11 +1,11 @@
-import App, { Container } from 'next/app';
-import GlobalHeader from '../components/VNextChrome/GlobalHeader';
-import Tabs from '../components/VNextChrome/Tabs';
+import App, { Container } from "next/app";
+import GlobalHeader from "../components/VNextChrome/GlobalHeader";
+import Tabs from "../components/VNextChrome/Tabs";
 import styled, {
   ServerStyleSheet,
   createGlobalStyle,
   ThemeProvider
-} from 'styled-components';
+} from "styled-components";
 
 class MyApp extends App {
   render() {
