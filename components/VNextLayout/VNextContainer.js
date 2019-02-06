@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import PaneCustomer from './PaneCustomer';
-import PaneChat from './PaneChat';
-import PaneBot from './PaneBot';
+import React, { Component } from "react";
+import styled from "styled-components";
+import PaneCustomer from "./PaneCustomer";
+import PaneChat from "./PaneChat";
+import PaneBot from "./PaneBot";
 
 export default class VNextContainer extends Component {
   constructor(props) {
@@ -12,28 +12,36 @@ export default class VNextContainer extends Component {
     this.botInput = this.botInput.bind(this);
 
     this.state = {
-      test: ''
+      custConvers: [],
+      botConvers: []
     };
   }
 
   chatInput = (test, type) => {
-    if (type === 'bot') {
-      console.log('from bot pane ' + test);
+    let message = "{" + test + "}";
+    if (type === "bot") {
+      this.setState({ botConvers: [...this.state.botConvers, message] });
     } else {
-      console.log('from chat pane ' + test);
+      this.setState({ custConvers: [...this.state.custConvers, message] });
     }
   };
 
   botInput = test => {
-    console.log('from bot pane ' + test);
+    console.log("from bot pane " + test);
   };
 
   render() {
     return (
       <Container>
         <PaneCustomer />
-        <PaneChat chatInput={this.chatInput} />
-        <PaneBot chatInput={this.chatInput} />
+        <PaneChat
+          chatInput={this.chatInput}
+          custConvers={this.state.custConvers}
+        />
+        <PaneBot
+          chatInput={this.chatInput}
+          botConvers={this.state.botConvers}
+        />
       </Container>
     );
   }
