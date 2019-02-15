@@ -12,7 +12,7 @@ export default class TypingIndicator extends Component {
     );
   }
 }
-const Time = 1300;
+const Time = 1000;
 const Typing = styled.div`
   box-sizing: border-box;
   display: flex;
