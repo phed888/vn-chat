@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ChatInputContainer from './ChatInputStyles';
+import TypingIndicator from '../TypingIndicator';
 
 class ChatInput extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class ChatInput extends Component {
 
   submitChange = event => {
     event.preventDefault();
-    this.props.chatInput(this.state.textInput, this.props.inputType);
+    this.props.chatInput(<TypingIndicator />, this.props.inputType);
     this.setState({ textInput: '' });
   };
 
