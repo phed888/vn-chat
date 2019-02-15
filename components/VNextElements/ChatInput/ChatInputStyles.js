@@ -31,6 +31,10 @@ const ChatInputContainer = styled.form`
     height: 52px;
     cursor: pointer;
   }
+  button.is-active {
+    color: rgba(0, 0, 30, 1);
+    font-weight: bold;
+  }
 `;
 
 export default ChatInputContainer;

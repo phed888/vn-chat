@@ -29,7 +29,12 @@ class ChatInput extends Component {
           value={this.state.textInput}
           onChange={this.handleChange}
         />
-        <button type="submit">{this.props.submitTitle}</button>
+        <button
+          type="submit"
+          className={this.state.textInput ? 'is-active' : null}
+        >
+          {this.props.submitTitle}
+        </button>
       </ChatInputContainer>
     );
   }
