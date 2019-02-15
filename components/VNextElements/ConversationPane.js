@@ -6,6 +6,7 @@ const ConversationPane = styled.div`
   overflow-y: auto;
   .message {
     position: relative;
+    font-size: 14px;
     list-style: none;
     padding: 0;
     margin: 0 0 8px 0;
