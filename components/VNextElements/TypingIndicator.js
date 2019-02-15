@@ -12,11 +12,11 @@ export default class TypingIndicator extends Component {
     );
   }
 }
-const Time = 1000;
+const Time = 1300;
 const Typing = styled.div`
   box-sizing: border-box;
   display: flex;
-  margin: 4px 0;
+  margin: 0 0 6px;
   p {
     margin: 0;
     background-color: #00001e;
@@ -36,15 +36,16 @@ const Typing = styled.div`
   }
   @keyframes bouncing {
     0% {
-      transform: translateY(-4px);
+      transform: translateY(4px);
       animation-timing-function: ease-in;
     }
-    60% {
-      transform: translateY(4px);
-      animation-timing-function: linear;
-    }
-    100% {
+    30% {
       transform: translateY(-4px);
+      animation-timing-function: ease-out;
+    }
+    60%,
+    100% {
+      transform: translateY(4px);
       animation-timing-function: ease-in;
     }
   }
