@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import ChatPane from "../utilities/globalStyles/ChatPane";
-import PaneHeader from "../utilities/globalStyles/PaneHeader";
-import Conversation from "../VNextElements/Conversation";
+import React, { Component } from 'react';
+import ChatPane from '../utilities/globalStyles/ChatPane';
+import PaneHeader from '../utilities/globalStyles/PaneHeader';
+import CustDetails from '../VNextElements/CustDetails';
 
 export default class PaneCustomer extends Component {
   render() {
@@ -13,7 +13,7 @@ export default class PaneCustomer extends Component {
             <p className="subtitle" />
           </div>
         </PaneHeader>
-        <Conversation convers={this.props.custConvers} />
+        <CustDetails />
         <div />
       </ChatPane>
     );

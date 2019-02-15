@@ -1,15 +1,11 @@
-import React, { Component } from "react";
-import ChatPane from "../utilities/globalStyles/ChatPane";
-import PaneHeader from "../utilities/globalStyles/PaneHeader";
-import ChatBot from "../icons/ChatBot";
-import ChatInput from "../VNextElements/ChatInput/ChatInput";
-import Conversation from "../VNextElements/Conversation";
+import React, { Component } from 'react';
+import ChatPane from '../utilities/globalStyles/ChatPane';
+import PaneHeader from '../utilities/globalStyles/PaneHeader';
+import ChatBot from '../icons/ChatBot';
+import ChatInput from '../VNextElements/ChatInput/ChatInput';
+import BotConversation from '../VNextElements/BotConversation';
 
 export default class PaneBot extends Component {
-  handleClick = () => {
-    this.props.testFunc("Bloop");
-  };
-
   render() {
     return (
       <ChatPane BGColor="rgba(255, 255, 255, 0.8)">
@@ -20,7 +16,7 @@ export default class PaneBot extends Component {
             <p className="subtitle">Have a trip or service question?</p>
           </div>
         </PaneHeader>
-        <Conversation convers={this.props.botConvers} />
+        <BotConversation botConvers={this.props.botConvers} />
         <ChatInput
           submitTitle="Go"
           inputPlaceholder="Placeholder text..."
