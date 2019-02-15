@@ -12,7 +12,7 @@ export default class TypingIndicator extends Component {
     );
   }
 }
-
+const Time = 1000;
 const Typing = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -25,13 +25,13 @@ const Typing = styled.div`
     opacity: 0.3;
     border-radius: 50%;
     margin-right: 6px;
-    animation: bouncing 1300ms infinite;
+    animation: bouncing ${Time}ms infinite;
   }
   p:nth-child(2) {
-    animation-delay: -1100ms;
+    animation-delay: ${Time * -0.846}ms;
   }
   p:nth-child(3) {
-    animation-delay: -900ms;
+    animation-delay: ${Time * -0.692}ms;
     margin-right: 0;
   }
   @keyframes bouncing {
