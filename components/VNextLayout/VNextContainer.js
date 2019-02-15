@@ -18,11 +18,13 @@ export default class VNextContainer extends Component {
       custConvers: [
         {
           msgType: 'Agent',
-          msgContent: 'Hello'
+          msgContent:
+            "Hi, I'm the Expedia bot here to help you with your booking questions."
         },
         {
           msgType: 'Agent',
-          msgContent: 'Hello2'
+          msgContent:
+            "And if I can't help, I'll connect you to a friendly customer service agent."
         }
       ],
       botConvers: [
