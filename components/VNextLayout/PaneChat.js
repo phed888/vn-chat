@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import ChatPane from '../utilities/globalStyles/ChatPane';
-import PaneHeader from '../utilities/globalStyles/PaneHeader';
-import ChatInput from '../VNextElements/ChatInput/ChatInput';
-import CustConversation from '../VNextElements/CustConversation';
+import React, { Component } from "react";
+import ChatPane from "../utilities/globalStyles/ChatPane";
+import PaneHeader from "../utilities/globalStyles/PaneHeader";
+import ChatInput from "../VNextElements/ChatInput/ChatInput";
+import CustConversation from "../VNextElements/CustConversation";
 
 export default class PaneChat extends Component {
   render() {
@@ -14,12 +14,16 @@ export default class PaneChat extends Component {
             <p className="subtitle">Have a trip or service question?</p>
           </div>
         </PaneHeader>
-        <CustConversation custConvers={this.props.custConvers} />
+        <CustConversation
+          custConvers={this.props.custConvers}
+          custReply={this.props.custReply}
+        />
         <ChatInput
           submitTitle="Go"
           inputPlaceholder="Placeholder text..."
           chatInput={this.props.chatInput}
-          inputType="chat"
+          removeLast={this.props.removeLast}
+          msgSource="custConvers"
         />
       </ChatPane>
     );
