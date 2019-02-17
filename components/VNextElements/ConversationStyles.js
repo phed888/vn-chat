@@ -1,18 +1,19 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ConversationPane = styled.div`
   padding: 16px;
+  font-size: 14px;
   flex-grow: 2;
   overflow-y: auto;
-  .message {
-    position: relative;
+  .conversation {
     list-style: none;
     padding: 0;
     margin: 0 0 8px 0;
-    .thought {
+    .message {
       display: flex;
+      position: relative;
     }
-    .thought span {
+    .message .thought {
       border-radius: 0;
       margin-bottom: 2px;
       padding: 12px 16px;
@@ -26,37 +27,38 @@ const ConversationPane = styled.div`
     position: absolute;
     left: 0;
     bottom: 0;
-    content: '';
-    background-image: url('../../static/images/icn-chatBot.svg');
+    content: "";
+    background-image: url("../../static/images/icn-chatBot.svg");
     height: 24px;
     width: 24px;
   }
   .outgoing {
+    flex-direction: row-reverse;
     padding-right: 32px;
   }
   .outgoing:after {
     position: absolute;
     right: 0;
     bottom: 0;
-    content: '';
-    background-image: url('../../static/images/icn-chatBot.svg');
+    content: "";
+    background-image: url("../../static/images/icn-chatBot.svg");
     height: 24px;
     width: 24px;
   }
   .outgoing .thought {
     flex-direction: row-reverse;
   }
-  .message {
-    .thought span {
+  .conversation {
+    .message .thought {
       background-color: #ffffff;
     }
-    .thought:first-child span {
+    .message:first-child .thought {
       border-radius: 8px 8px 0 0;
     }
-    .thought:last-child span {
+    .message:last-child .thought {
       border-radius: 0 0 8px 0;
     }
-    .thought:only-child span {
+    .message:only-child .thought {
       border-radius: 8px 8px 8px 0;
     }
   }
