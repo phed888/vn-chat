@@ -23,9 +23,9 @@ export default class BotConversation extends Component {
   }
 
   render() {
-    const messages = this.props.botConvers.map(convo => {
+    const messages = this.props.botConvers.map((convo, index) => {
       return (
-        <li key={convo.msgContent} className={`message ${convo.msgType}`}>
+        <li key={index} className={`message ${convo.msgType}`}>
           <p className="thought">{convo.msgContent}</p>
         </li>
       );
