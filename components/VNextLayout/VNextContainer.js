@@ -16,7 +16,7 @@ export default class VNextContainer extends Component {
     this.state = {
       custReply: false,
       botReply: false,
-      // custConvers2: {
+      // custConvers: {
       //   message: {
       //     msgSource: "custConvers",
       //     msgType: "outgoing",
