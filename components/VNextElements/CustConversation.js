@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import ConversationPane from './ConversationPane';
+import React, { Component } from "react";
+import ConversationStyles from "./ConversationStyles";
 
 export default class CustConversation extends Component {
   render() {
-    const messages = this.props.custConvers.map(convo => {
+    const messages = this.props.custConvers.map((convo, index) => {
       return (
-        <li key={convo.msgContent} className="thought">
-          <span>{convo.msgContent}</span>
+        <li key={index} className={`message ${convo.msgType}`}>
+          <p className="thought">{convo.msgContent}</p>
         </li>
       );
     });
 
     return (
-      <ConversationPane>
-        <ul className="message incoming">{messages}</ul>
-      </ConversationPane>
+      <ConversationStyles>
+        <ul className="conversation customer">{messages}</ul>
+      </ConversationStyles>
     );
   }
 }

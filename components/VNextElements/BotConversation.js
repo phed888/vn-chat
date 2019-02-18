@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import ConversationPane from './ConversationPane';
+import React, { Component } from "react";
+import ConversationStyles from "./ConversationStyles";
 
 let chatCounter = 0;
 let chatTimer = null;
+// let botReply = this.props.botReply;
 
 export default class BotConversation extends Component {
   componentDidUpdate() {
@@ -22,18 +23,18 @@ export default class BotConversation extends Component {
   }
 
   render() {
-    const messages = this.props.botConvers.map(convo => {
+    const messages = this.props.botConvers.map((convo, index) => {
       return (
-        <li key={convo.msgContent} className="thought">
-          <span>{convo.msgContent}</span>
+        <li key={index} className={`message ${convo.msgType}`}>
+          <p className="thought">{convo.msgContent}</p>
         </li>
       );
     });
 
     return (
-      <ConversationPane>
-        <ul className="message incoming">{messages}</ul>
-      </ConversationPane>
+      <ConversationStyles>
+        <ul className="conversation bot">{messages}</ul>
+      </ConversationStyles>
     );
   }
 }

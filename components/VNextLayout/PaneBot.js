@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import ChatPane from '../utilities/globalStyles/ChatPane';
-import PaneHeader from '../utilities/globalStyles/PaneHeader';
-import ChatBot from '../icons/ChatBot';
-import ChatInput from '../VNextElements/ChatInput/ChatInput';
-import BotConversation from '../VNextElements/BotConversation';
+import React, { Component } from "react";
+import ChatPane from "../utilities/globalStyles/ChatPane";
+import PaneHeader from "../utilities/globalStyles/PaneHeader";
+import ChatBot from "../icons/ChatBot";
+import ChatInput from "../VNextElements/ChatInput/ChatInput";
+import BotConversation from "../VNextElements/BotConversation";
 
 export default class PaneBot extends Component {
   render() {
@@ -16,12 +16,16 @@ export default class PaneBot extends Component {
             <p className="subtitle">Have a trip or service question?</p>
           </div>
         </PaneHeader>
-        <BotConversation botConvers={this.props.botConvers} />
+        <BotConversation
+          botConvers={this.props.botConvers}
+          botReply={this.props.botReply}
+        />
         <ChatInput
           submitTitle="Go"
           inputPlaceholder="Placeholder text..."
           chatInput={this.props.chatInput}
-          inputType="bot"
+          removeLast={this.props.removeLast}
+          msgSource="botConvers"
         />
       </ChatPane>
     );
