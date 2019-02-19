@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import ChatInputContainer from "./ChatInputStyles";
-import TypingIndicator from "../TypingIndicator";
+import React, { Component } from 'react';
+import ChatInputContainer from './ChatInputStyles';
+import TypingIndicator from '../TypingIndicator';
 
 let typingTimer = null;
 
@@ -9,8 +9,8 @@ class ChatInput extends Component {
     super(props);
 
     this.state = {
-      textInput: "",
-      formInput: ""
+      textInput: '',
+      formInput: ''
     };
   }
 
@@ -21,7 +21,7 @@ class ChatInput extends Component {
 
   submitChange = event => {
     event.preventDefault();
-    this.setState({ formInput: "" });
+    this.setState({ formInput: '' });
     this.startTyping(2000);
   };
 
@@ -38,8 +38,8 @@ class ChatInput extends Component {
   addMessage() {
     console.log(this.state.textInput);
     this.props.chatInput(this.state.textInput, this.props.inputType);
-    this.setState({ textInput: "" });
-    this.setState({ formInput: "" });
+    this.setState({ textInput: '' });
+    this.setState({ formInput: '' });
   }
 
   render() {
@@ -53,7 +53,7 @@ class ChatInput extends Component {
         />
         <button
           type="submit"
-          className={this.state.formInput ? "is-active" : null}
+          className={this.state.formInput ? 'is-active' : null}
         >
           {this.props.submitTitle}
         </button>
