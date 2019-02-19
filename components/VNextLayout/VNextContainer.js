@@ -16,42 +16,50 @@ export default class VNextContainer extends Component {
     this.state = {
       custReply: false,
       botReply: false,
-      // custConvers: {
-      //   message: {
-      //     msgSource: "custConvers",
-      //     msgType: "outgoing",
-      //     thought: {
-      //       msgContent:
-      //         "Hi, I'm the Expedia virtual assistant, here to help you with your booking needs."
-      //     },
-      //     thought: {
-      //       msgContent:
-      //         "And if I can't help you, I'll connect you to a friendly customer service agent."
-      //     }
-      //   },
-      //   message: {
-      //     msgSource: "custConvers",
-      //     msgType: "incoming",
-      //     thought: {
-      //       msgContent: "I need to speak to an agent about my room."
-      //     }
-      //   },
-      //   message: {
-      //     msgSource: "custConvers",
-      //     msgType: "outgoing",
-      //     thought: {
-      //       msgContent:
-      //         "Please give me your name so that I can connect you with an agent."
-      //     }
-      //   },
-      //   message: {
-      //     msgSource: "custConvers",
-      //     msgType: "incoming",
-      //     thought: {
-      //       msgContent: "Wilo"
-      //     }
-      //   }
-      // },
+      custConvers2: [
+        {
+          msgSource: 'custConvers',
+          msgType: 'outgoing',
+          thoughts: [
+            {
+              thought:
+                "Hi, I'm the Expedia virtual assistant, here to help you with your booking needs."
+            },
+            {
+              thought:
+                "And if I can't help you, I'll connect you to a friendly customer service agent."
+            }
+          ]
+        },
+        {
+          msgSource: 'custConvers',
+          msgType: 'incoming',
+          thoughts: [
+            {
+              thought: 'I need to talk to an agent about my room.'
+            }
+          ]
+        },
+        {
+          msgSource: 'custConvers',
+          msgType: 'outgoing',
+          thoughts: [
+            {
+              thought:
+                'Please give me your name so that I can connect you with an agent.'
+            }
+          ]
+        },
+        {
+          msgSource: 'custConvers',
+          msgType: 'incoming',
+          thoughts: [
+            {
+              thought: 'Wilo'
+            }
+          ]
+        }
+      ],
       custConvers: [
         {
           msgSource: 'custConvers',
@@ -98,6 +106,7 @@ export default class VNextContainer extends Component {
   }
 
   chatInput = (test, type, source) => {
+    // let lastMessage = this.state.custConvers2.length
     let message = {
       msgSource: source,
       msgType: type,
@@ -124,14 +133,20 @@ export default class VNextContainer extends Component {
     }
   };
 
+  handleClick = () => {
+    let convers = this.state.custConvers2;
+    console.log('Hello');
+    console.log(convers[convers.length - 1].msgType);
+  };
+
   render() {
     return (
-      <Container>
+      <Container onClick={this.handleClick}>
         <PaneCustomer />
         <PaneChat
           chatInput={this.chatInput}
           removeLast={this.removeLast}
-          custConvers={this.state.custConvers}
+          custConvers={this.state.custConvers2}
           custReply={this.state.custReply}
         />
         <PaneBot
