@@ -12,12 +12,18 @@ const ConversationPane = styled.div`
     .message {
       display: flex;
       position: relative;
+      margin-bottom: 10px;
     }
-    .message .thought {
-      border-radius: 0;
-      margin-bottom: 2px;
-      padding: 12px 16px;
+    .message .thoughts {
+      display: flex;
+      flex-direction: column;
       max-width: 75%;
+    }
+    .thoughts .thought {
+      display: block;
+      border-radius: 0;
+      margin: 0 0 2px;
+      padding: 12px 16px;
     }
   }
   .incoming {
@@ -48,18 +54,32 @@ const ConversationPane = styled.div`
   .outgoing .thought {
     flex-direction: row-reverse;
   }
-  .conversation {
-    .message .thought {
+  .message.incoming {
+    .thoughts .thought {
       background-color: #ffffff;
     }
-    .message:first-child .thought {
+    .thoughts:first-child .thought {
       border-radius: 8px 8px 0 0;
     }
-    .message:last-child .thought {
+    .thoughts:last-child .thought {
       border-radius: 0 0 8px 0;
     }
-    .message:only-child .thought {
+    .thoughts:only-child .thought {
       border-radius: 8px 8px 8px 0;
+    }
+  }
+  .message.outgoing {
+    .thoughts .thought {
+      background-color: #dddddd;
+    }
+    .thoughts .thought:only-child {
+      border-radius: 8px 8px 0 8px;
+    }
+    .thoughts .thought:last-child {
+      border-radius: 0 0 0 8px;
+    }
+    .thoughts .thought:first-child {
+      border-radius: 8px 8px 0 0;
     }
   }
 `;
