@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import ChatPane from "../utilities/globalStyles/ChatPane";
-import PaneHeader from "../utilities/globalStyles/PaneHeader";
-import ChatInput from "../VNextElements/ChatInput/ChatInput";
-import CustConversation from "../VNextElements/CustConversation";
+import React, { Component } from 'react';
+import ChatPane from '../utilities/globalStyles/ChatPane';
+import PaneHeader from '../utilities/globalStyles/PaneHeader';
+import ChatInput from '../VNextElements/ChatInput/ChatInput';
+import CustConversation from '../VNextElements/CustConversation';
 
 export default class PaneChat extends Component {
   render() {
@@ -15,7 +15,7 @@ export default class PaneChat extends Component {
           </div>
         </PaneHeader>
         <CustConversation
-          custConvers={this.props.custConvers}
+          custConvers2={this.props.custConvers2}
           custReply={this.props.custReply}
         />
         <ChatInput
@@ -24,6 +24,7 @@ export default class PaneChat extends Component {
           chatInput={this.props.chatInput}
           removeLast={this.props.removeLast}
           msgSource="custConvers"
+          custConvers2={this.props.custConvers2} //remove
         />
       </ChatPane>
     );

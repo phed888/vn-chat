@@ -58,6 +58,15 @@ export default class VNextContainer extends Component {
               thought: 'Wilo'
             }
           ]
+        },
+        {
+          msgSource: 'custConvers',
+          msgType: 'outgoing',
+          thoughts: [
+            {
+              thought: 'Well, howdy Wilo!'
+            }
+          ]
         }
       ],
       custConvers: [
@@ -105,18 +114,26 @@ export default class VNextContainer extends Component {
     };
   }
 
-  chatInput = (test, type, source) => {
-    // let lastMessage = this.state.custConvers2.length
-    let message = {
-      msgSource: source,
-      msgType: type,
-      msgContent: test
-    };
-    if (source === 'botConvers') {
-      this.setState({ botConvers: [...this.state.botConvers, message] });
-    } else {
-      this.setState({ custConvers: [...this.state.custConvers, message] });
+  chatInput = (thought, type, source) => {
+    let currentThought = thought;
+    let convers = this.state.custConvers2;
+    let lastMsg = convers[convers.length - 1];
+    let lastMsgType = lastMsg.msgType;
+    if (lastMsgType === 'outgoing') {
+      let newThought = {
+        thought: currentThought
+      };
+
+      this.setState({
+        custConvers2: lastMsg.thoughts.push(newThought)
+      });
     }
+
+    // if (source === 'botConvers') {
+    //   this.setState({ botConvers: [...this.state.botConvers, message] });
+    // } else {
+    //   this.setState({ custConvers: [...this.state.custConvers, message] });
+    // }
   };
 
   removeLast = whichArray => {
@@ -141,12 +158,12 @@ export default class VNextContainer extends Component {
 
   render() {
     return (
-      <Container onClick={this.handleClick}>
+      <Container>
         <PaneCustomer />
         <PaneChat
           chatInput={this.chatInput}
           removeLast={this.removeLast}
-          custConvers={this.state.custConvers2}
+          custConvers2={this.state.custConvers2}
           custReply={this.state.custReply}
         />
         <PaneBot

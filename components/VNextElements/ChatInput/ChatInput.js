@@ -22,7 +22,15 @@ class ChatInput extends Component {
   submitChange = event => {
     event.preventDefault();
     this.setState({ formInput: '' });
-    this.startTyping(2000);
+    // this.startTyping(2000);
+    this.props.chatInput(
+      this.state.textInput,
+      this.props.inputType,
+      this.props.msgSource
+    );
+    console.log(this.props.custConvers2);
+    this.setState({ textInput: '' });
+    this.setState({ formInput: '' });
   };
 
   // Display typing indicator after submittin
@@ -37,7 +45,11 @@ class ChatInput extends Component {
   }
   addMessage() {
     console.log(this.state.textInput);
-    this.props.chatInput(this.state.textInput, this.props.inputType);
+    this.props.chatInput(
+      this.state.textInput,
+      this.props.inputType,
+      this.props.msgSource
+    );
     this.setState({ textInput: '' });
     this.setState({ formInput: '' });
   }
