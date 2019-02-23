@@ -72,14 +72,14 @@ const ConversationPane = styled.div`
     .thoughts .thought {
       background-color: #dddddd;
     }
-    .thoughts .thought:only-child {
-      border-radius: 8px 8px 0 8px;
-    }
     .thoughts .thought:last-child {
       border-radius: 0 0 0 8px;
     }
     .thoughts .thought:first-child {
       border-radius: 8px 8px 0 0;
+    }
+    .thoughts .thought:only-child {
+      border-radius: 8px 8px 0 8px;
     }
   }
 `;
