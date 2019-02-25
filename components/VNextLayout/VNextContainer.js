@@ -1,12 +1,8 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import PaneCustomer from "./PaneCustomer";
-import PaneChat from "./PaneChat";
-import PaneBot from "./PaneBot";
-
-let chatCounter = 0;
-let chatTimer = null;
-let scroller = null;
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import PaneCustomer from './PaneCustomer';
+import PaneChat from './PaneChat';
+import PaneBot from './PaneBot';
 
 export default class VNextContainer extends Component {
   constructor(props) {
@@ -19,8 +15,8 @@ export default class VNextContainer extends Component {
       botReply: false,
       custConvers: [
         {
-          msgSource: "custConvers",
-          msgType: "outgoing",
+          msgSource: 'custConvers',
+          msgType: 'outgoing',
           thoughts: [
             {
               thought:
@@ -33,69 +29,69 @@ export default class VNextContainer extends Component {
           ]
         },
         {
-          msgSource: "custConvers",
-          msgType: "incoming",
+          msgSource: 'custConvers',
+          msgType: 'incoming',
           thoughts: [
             {
-              thought: "I need to talk to an agent about my room."
+              thought: 'I need to talk to an agent about my room.'
             }
           ]
         },
         {
-          msgSource: "custConvers",
-          msgType: "outgoing",
+          msgSource: 'custConvers',
+          msgType: 'outgoing',
           thoughts: [
             {
               thought:
-                "Please give me your name so that I can connect you with an agent."
+                'Please give me your name so that I can connect you with an agent.'
             }
           ]
         },
         {
-          msgSource: "custConvers",
-          msgType: "incoming",
+          msgSource: 'custConvers',
+          msgType: 'incoming',
           thoughts: [
             {
-              thought: "Wilo"
+              thought: 'Wilo'
             }
           ]
         },
         {
-          msgSource: "custConvers",
-          msgType: "outgoing",
+          msgSource: 'custConvers',
+          msgType: 'outgoing',
           thoughts: [
             {
-              thought: "Well, howdy Wilo!"
+              thought: 'Well, howdy Wilo!'
             }
           ]
         }
       ],
       botConvers: [
         {
-          msgSource: "botConvers",
-          msgType: "outgoing",
+          msgSource: 'botConvers',
+          msgType: 'outgoing',
           thoughts: [
             {
               thought:
-                "Please give me your name so that I can connect you with an agent."
+                'Please give me your name so that I can connect you with an agent.'
             }
           ]
         },
         {
-          msgSource: "botConvers",
-          msgType: "incoming",
+          msgSource: 'botConvers',
+          msgType: 'incoming',
           thoughts: [
             {
-              thought: "Wilo"
+              thought: 'Wilo'
             }
           ]
         },
         {
-          msgSource: "botConvers",
-          msgType: "outgoing",
+          msgSource: 'botConvers',
+          msgType: 'outgoing',
           thoughts: [
             {
-              thought: "Well, howdy there Wilo!"
+              thought: 'Well, howdy there Wilo!'
             }
           ]
         }
@@ -104,12 +100,12 @@ export default class VNextContainer extends Component {
   }
 
   chatInput = (thought, type, source) => {
-    if (source === "custConvers") {
-      let currentThought = thought;
+    let currentThought = thought;
+    if (source === 'custConvers') {
       let convers = [...this.state.custConvers];
       let lastMsg = convers[convers.length - 1];
       let lastMsgType = lastMsg.msgType;
-      if (lastMsgType === "outgoing") {
+      if (lastMsgType === 'outgoing') {
         let newThought = {
           thought: currentThought
         };
@@ -117,16 +113,21 @@ export default class VNextContainer extends Component {
         this.setState({ custConvers: convers });
       }
     } else {
+      let convers = [...this.state.botConvers];
+      let lastMsg = convers[convers.length - 1];
+      let lastMsgType = lastMsg.msgType;
+      if (lastMsgType === 'outgoing') {
+        let newThought = {
+          thought: currentThought
+        };
+        lastMsg.thoughts.push(newThought);
+        this.setState({ botConvers: convers });
+      }
     }
-
-    // if (source === 'botConvers') {
-    //   this.setState({ botConvers: [...this.state.botConvers, message] });
-    // } else {
-    //   this.setState({ custConvers: [...this.state.custConvers, message] });
-    // }
   };
+
   removeLast = whichArray => {
-    if (whichArray === "botConvers") {
+    if (whichArray === 'botConvers') {
       const last = this.state.botConvers.length - 1;
       let array = [...this.state.botConvers];
       array.splice(last, 1);
@@ -137,12 +138,6 @@ export default class VNextContainer extends Component {
       array.splice(last, 1);
       this.setState({ custConvers: array });
     }
-  };
-
-  handleClick = () => {
-    let convers = this.state.custConvers;
-    console.log("Hello");
-    console.log(convers[convers.length - 1].msgType);
   };
 
   render() {
