@@ -1,9 +1,25 @@
-import React, { Component } from 'react';
-import ConversationStyles from './ConversationStyles';
+import React, { Component } from "react";
+import ConversationStyles from "./ConversationStyles";
 
 export default class CustConversation extends Component {
+  constructor(props) {
+    super(props);
+    this.scrollTargetCust = React.createRef();
+  }
+  componentDidMount() {
+    this.scrollTargetCust.current.scrollIntoView({
+      block: "end",
+      behavior: "smooth"
+    });
+  }
+  componentDidUpdate() {
+    this.scrollTargetCust.current.scrollIntoView({
+      block: "end",
+      behavior: "smooth"
+    });
+  }
   render() {
-    const messages = this.props.custConvers2.map((convers, index) => {
+    const messages = this.props.custConvers.map((convers, index) => {
       return (
         <li key={index} className={`message ${convers.msgType}`}>
           <div className="thoughts">
@@ -20,7 +36,10 @@ export default class CustConversation extends Component {
     });
     return (
       <ConversationStyles>
-        <ul className="conversation customer">{messages}</ul>
+        <ul className="conversation customer">
+          {messages}
+          <div className="scrollTargetCust" ref={this.scrollTargetCust} />
+        </ul>
       </ConversationStyles>
     );
   }

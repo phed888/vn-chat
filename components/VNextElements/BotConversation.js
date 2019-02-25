@@ -1,39 +1,45 @@
 import React, { Component } from "react";
 import ConversationStyles from "./ConversationStyles";
 
-let chatCounter = 0;
-let chatTimer = null;
-// let botReply = this.props.botReply;
-
-export default class BotConversation extends Component {
+export default class CustConversation extends Component {
+  constructor(props) {
+    super(props);
+    this.scrollTargetBot = React.createRef();
+  }
+  componentDidMount() {
+    this.scrollTargetBot.current.scrollIntoView({
+      block: "end",
+      behavior: "smooth"
+    });
+  }
   componentDidUpdate() {
-    if (chatCounter > 0) {
-      clearInterval(chatTimer);
-      chatCounter = 0;
-      this.startTimer();
-    } else {
-      this.startTimer();
-    }
+    this.scrollTargetBot.current.scrollIntoView({
+      block: "end",
+      behavior: "smooth"
+    });
   }
-  startTimer() {
-    chatTimer = setInterval(() => this.tick(), 1000);
-  }
-  tick() {
-    chatCounter = chatCounter + 1;
-  }
-
   render() {
-    const messages = this.props.botConvers.map((convo, index) => {
+    const messages = this.props.botConvers.map((convers, index) => {
       return (
-        <li key={index} className={`message ${convo.msgType}`}>
-          <p className="thought">{convo.msgContent}</p>
+        <li key={index} className={`message ${convers.msgType}`}>
+          <div className="thoughts">
+            {convers.thoughts.map((thought, index) => {
+              return (
+                <p className="thought" key={index}>
+                  {thought.thought}
+                </p>
+              );
+            })}
+          </div>
         </li>
       );
     });
-
     return (
       <ConversationStyles>
-        <ul className="conversation bot">{messages}</ul>
+        <ul className="conversation bot">
+          {messages}
+          <div className="scrollTargetCust" ref={this.scrollTargetBot} />
+        </ul>
       </ConversationStyles>
     );
   }

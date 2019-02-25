@@ -1,14 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ConversationPane = styled.div`
-  padding: 16px;
   font-size: 14px;
-  flex-grow: 2;
-  overflow-y: auto;
+  height: calc(100vh - 305px);
+  /* overflow-y: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  .scrolling-container {
+  }
   .conversation {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 8px 0;
+    overflow-y: auto;
+
+    padding: 16px;
+
+    margin: 0;
     .message {
       display: flex;
       position: relative;
@@ -33,8 +39,8 @@ const ConversationPane = styled.div`
     position: absolute;
     left: 0;
     bottom: 0;
-    content: '';
-    background-image: url('../../static/images/icn-chatBot.svg');
+    content: "";
+    background-image: url("../../static/images/icn-chatBot.svg");
     height: 24px;
     width: 24px;
   }
@@ -46,8 +52,8 @@ const ConversationPane = styled.div`
     position: absolute;
     right: 0;
     bottom: 0;
-    content: '';
-    background-image: url('../../static/images/icn-chatBot.svg');
+    content: "";
+    background-image: url("../../static/images/icn-chatBot.svg");
     height: 24px;
     width: 24px;
   }

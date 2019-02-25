@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import PaneCustomer from './PaneCustomer';
-import PaneChat from './PaneChat';
-import PaneBot from './PaneBot';
+import React, { Component } from "react";
+import styled from "styled-components";
+import PaneCustomer from "./PaneCustomer";
+import PaneChat from "./PaneChat";
+import PaneBot from "./PaneBot";
 
 let chatCounter = 0;
 let chatTimer = null;
+let scroller = null;
 
 export default class VNextContainer extends Component {
   constructor(props) {
@@ -16,10 +17,10 @@ export default class VNextContainer extends Component {
     this.state = {
       custReply: false,
       botReply: false,
-      custConvers2: [
+      custConvers: [
         {
-          msgSource: 'custConvers',
-          msgType: 'outgoing',
+          msgSource: "custConvers",
+          msgType: "outgoing",
           thoughts: [
             {
               thought:
@@ -32,101 +33,90 @@ export default class VNextContainer extends Component {
           ]
         },
         {
-          msgSource: 'custConvers',
-          msgType: 'incoming',
+          msgSource: "custConvers",
+          msgType: "incoming",
           thoughts: [
             {
-              thought: 'I need to talk to an agent about my room.'
+              thought: "I need to talk to an agent about my room."
             }
           ]
         },
         {
-          msgSource: 'custConvers',
-          msgType: 'outgoing',
+          msgSource: "custConvers",
+          msgType: "outgoing",
           thoughts: [
             {
               thought:
-                'Please give me your name so that I can connect you with an agent.'
+                "Please give me your name so that I can connect you with an agent."
             }
           ]
         },
         {
-          msgSource: 'custConvers',
-          msgType: 'incoming',
+          msgSource: "custConvers",
+          msgType: "incoming",
           thoughts: [
             {
-              thought: 'Wilo'
+              thought: "Wilo"
             }
           ]
         },
         {
-          msgSource: 'custConvers',
-          msgType: 'outgoing',
+          msgSource: "custConvers",
+          msgType: "outgoing",
           thoughts: [
             {
-              thought: 'Well, howdy Wilo!'
+              thought: "Well, howdy Wilo!"
             }
           ]
-        }
-      ],
-      custConvers: [
-        {
-          msgSource: 'custConvers',
-          msgType: 'outgoing',
-          msgContent:
-            "Hi, I'm the Expedia virtual assistant, here to help you with your booking needs."
-        },
-        {
-          msgSource: 'custConvers',
-          msgType: 'outgoing',
-          msgContent:
-            "And if I can't help you, I'll connect you to a friendly customer service agent."
-        },
-        {
-          msgSource: 'custConvers',
-          msgType: 'incoming',
-          msgContent: 'I need to speak to an agent about my room.'
-        },
-        {
-          msgSource: 'custConvers',
-          msgType: 'outgoing',
-          msgContent:
-            'Please give me your name so that I can connect you with an agent.'
-        },
-        {
-          msgSource: 'custConvers',
-          msgType: 'incoming',
-          msgContent: 'Wilo'
         }
       ],
       botConvers: [
         {
-          msgSource: 'botConvers',
-          msgType: 'outgoing',
-          msgContent: 'Hello'
+          msgSource: "botConvers",
+          msgType: "outgoing",
+          thoughts: [
+            {
+              thought:
+                "Please give me your name so that I can connect you with an agent."
+            }
+          ]
         },
         {
-          botSource: 'custConvers',
-          msgType: 'incoming',
-          msgContent: 'Hello2'
+          msgSource: "botConvers",
+          msgType: "incoming",
+          thoughts: [
+            {
+              thought: "Wilo"
+            }
+          ]
+        },
+        {
+          msgSource: "botConvers",
+          msgType: "outgoing",
+          thoughts: [
+            {
+              thought: "Well, howdy there Wilo!"
+            }
+          ]
         }
       ]
     };
   }
 
   chatInput = (thought, type, source) => {
-    let currentThought = thought;
-    let convers = this.state.custConvers2;
-    let lastMsg = convers[convers.length - 1];
-    let lastMsgType = lastMsg.msgType;
-    if (lastMsgType === 'outgoing') {
-      let newThought = {
-        thought: currentThought
-      };
-
-      this.setState({
-        custConvers2: lastMsg.thoughts.push(newThought)
-      });
+    if (source === "custConvers") {
+      let currentThought = thought;
+      let convers = [...this.state.custConvers];
+      let lastMsg = convers[convers.length - 1];
+      let lastMsgType = lastMsg.msgType;
+      if (lastMsgType === "outgoing") {
+        let newThought = {
+          thought: currentThought
+        };
+        lastMsg.thoughts.push(newThought);
+        this.setState({ custConvers: convers });
+      }
+    } else {
     }
 
     // if (source === 'botConvers') {
@@ -135,9 +125,8 @@ export default class VNextContainer extends Component {
     //   this.setState({ custConvers: [...this.state.custConvers, message] });
     // }
   };
-
   removeLast = whichArray => {
-    if (whichArray === 'botConvers') {
+    if (whichArray === "botConvers") {
       const last = this.state.botConvers.length - 1;
       let array = [...this.state.botConvers];
       array.splice(last, 1);
@@ -151,8 +140,8 @@ export default class VNextContainer extends Component {
   };
 
   handleClick = () => {
-    let convers = this.state.custConvers2;
-    console.log('Hello');
+    let convers = this.state.custConvers;
+    console.log("Hello");
     console.log(convers[convers.length - 1].msgType);
   };
 
@@ -163,7 +152,7 @@ export default class VNextContainer extends Component {
         <PaneChat
           chatInput={this.chatInput}
           removeLast={this.removeLast}
-          custConvers2={this.state.custConvers2}
+          custConvers={this.state.custConvers}
           custReply={this.state.custReply}
         />
         <PaneBot
