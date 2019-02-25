@@ -8,6 +8,13 @@ const PaneHeader = styled.header`
   height: 80px;
   font-size: 16px;
   border-radius: 0 4px 0 0;
+  &.customerChat {
+    justify-content: space-between;
+  }
+  .custPOS {
+    display: flex;
+    align-items: center;
+  }
   .title,
   .subtitle {
     padding: 0;
