@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import ChatInputContainer from "./ChatInputStyles";
-import TypingIndicator from "../TypingIndicator";
+import React, { Component } from 'react';
+import ChatInputContainer from './ChatInputStyles';
+import TypingIndicator from '../TypingIndicator';
 
 let typingTimer = null;
 
@@ -9,8 +9,8 @@ class ChatInput extends Component {
     super(props);
 
     this.state = {
-      textInput: "",
-      formInput: ""
+      textInput: '',
+      formInput: ''
     };
   }
 
@@ -21,37 +21,39 @@ class ChatInput extends Component {
 
   submitChange = event => {
     event.preventDefault();
-    this.setState({ formInput: "" });
-    // this.startTyping(2000);
-    this.props.chatInput(
-      this.state.textInput,
-      this.props.inputType,
-      this.props.msgSource
-    );
-    // console.log(this.props.custConvers2);
-    this.setState({ textInput: "" });
-    this.setState({ formInput: "" });
+    this.setState({ formInput: '' });
+    this.startTyping(1000);
+    // this.props.chatInput(
+    //   this.state.textInput,
+    //   this.props.inputType,
+    //   this.props.msgSource
+    // );
+    // this.setState({ textInput: '' });
+    // this.setState({ formInput: '' });
   };
 
   // Display typing indicator after submittin
   startTyping(delay) {
     typingTimer = setInterval(() => this.stopTyping(), delay);
-    this.props.chatInput(<TypingIndicator />, this.props.inputType);
+    this.props.chatInput(
+      <TypingIndicator />,
+      this.props.inputType,
+      this.props.msgSource
+    );
   }
   stopTyping() {
     clearInterval(typingTimer);
-    this.props.removeLast(this.props.inputType);
+    this.props.removeLast(this.props.msgSource, this.props.inputType);
     this.addMessage();
   }
   addMessage() {
-    // console.log(this.state.textInput);
     this.props.chatInput(
       this.state.textInput,
       this.props.inputType,
       this.props.msgSource
     );
-    this.setState({ textInput: "" });
-    this.setState({ formInput: "" });
+    this.setState({ textInput: '' });
+    this.setState({ formInput: '' });
   }
 
   render() {
@@ -65,7 +67,7 @@ class ChatInput extends Component {
         />
         <button
           type="submit"
-          className={this.state.formInput ? "is-active" : null}
+          className={this.state.formInput ? 'is-active' : null}
         >
           {this.props.submitTitle}
         </button>

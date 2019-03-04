@@ -32,7 +32,7 @@ export default class PaneChat extends Component {
           chatInput={this.props.chatInput}
           removeLast={this.props.removeLast}
           msgSource="custConvers"
-          custConvers2={this.props.custConvers} //remove
+          inputType="outgoing"
         />
       </ChatPane>
     );

@@ -55,15 +55,6 @@ export default class VNextContainer extends Component {
               thought: 'Wilo'
             }
           ]
-        },
-        {
-          msgSource: 'custConvers',
-          msgType: 'outgoing',
-          thoughts: [
-            {
-              thought: 'Well, howdy Wilo!'
-            }
-          ]
         }
       ],
       botConvers: [
@@ -99,6 +90,8 @@ export default class VNextContainer extends Component {
     };
   }
 
+  // chatInput();
+
   chatInput = (thought, type, source) => {
     let currentThought = thought;
     if (source === 'custConvers') {
@@ -111,6 +104,18 @@ export default class VNextContainer extends Component {
         };
         lastMsg.thoughts.push(newThought);
         this.setState({ custConvers: convers });
+      } else {
+        let newThought = {
+          msgSource: 'custConvers',
+          msgType: 'outgoing',
+          thoughts: [
+            {
+              thought: currentThought
+            }
+          ]
+        };
+        convers.push(newThought);
+        this.setState({ custConvers: convers });
       }
     } else {
       let convers = [...this.state.botConvers];
@@ -122,21 +127,31 @@ export default class VNextContainer extends Component {
         };
         lastMsg.thoughts.push(newThought);
         this.setState({ botConvers: convers });
+      } else {
+        let newThought = {
+          msgSource: 'botConvers',
+          msgType: 'outgoing',
+          thoughts: [
+            {
+              thought: currentThought
+            }
+          ]
+        };
+        convers.push(newThought);
+        this.setState({ botConvers: convers });
       }
     }
   };
 
   removeLast = whichArray => {
     if (whichArray === 'botConvers') {
-      const last = this.state.botConvers.length - 1;
-      let array = [...this.state.botConvers];
-      array.splice(last, 1);
-      this.setState({ botConvers: array });
+      let currConvers = [...this.state.botConvers];
+      const last = currConvers.length - 1;
+      currConvers[last].thoughts.pop();
     } else {
-      const last = this.state.custConvers.length - 1;
-      let array = [...this.state.custConvers];
-      array.splice(last, 1);
-      this.setState({ custConvers: array });
+      let currConvers = [...this.state.custConvers];
+      const last = currConvers.length - 1;
+      currConvers[last].thoughts.pop();
     }
   };
 
@@ -149,12 +164,14 @@ export default class VNextContainer extends Component {
           removeLast={this.removeLast}
           custConvers={this.state.custConvers}
           custReply={this.state.custReply}
+          chatInput={this.chatInput}
         />
         <PaneBot
           chatInput={this.chatInput}
           removeLast={this.removeLast}
           botConvers={this.state.botConvers}
           botReply={this.state.botReply}
+          chatInput={this.chatInput}
         />
       </Container>
     );

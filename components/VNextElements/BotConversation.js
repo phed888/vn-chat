@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import ConversationStyles from "./ConversationStyles";
+import React, { Component } from 'react';
+import ConvoContainer from './ConversationStyles';
 
 export default class CustConversation extends Component {
   constructor(props) {
@@ -8,22 +8,22 @@ export default class CustConversation extends Component {
   }
   componentDidMount() {
     this.scrollTargetBot.current.scrollIntoView({
-      block: "end",
-      behavior: "smooth"
+      block: 'end',
+      behavior: 'smooth'
     });
   }
   componentDidUpdate() {
     this.scrollTargetBot.current.scrollIntoView({
-      block: "end",
-      behavior: "smooth"
+      block: 'end',
+      behavior: 'smooth'
     });
   }
   render() {
-    const messages = this.props.botConvers.map((convers, index) => {
+    const messages = this.props.botConvers.map((bconvers, index) => {
       return (
-        <li key={index} className={`message ${convers.msgType}`}>
+        <li key={index} className={`message ${bconvers.msgType}`}>
           <div className="thoughts">
-            {convers.thoughts.map((thought, index) => {
+            {bconvers.thoughts.map((thought, index) => {
               return (
                 <p className="thought" key={index}>
                   {thought.thought}
@@ -35,12 +35,12 @@ export default class CustConversation extends Component {
       );
     });
     return (
-      <ConversationStyles>
+      <ConvoContainer>
         <ul className="conversation bot">
           {messages}
           <div className="scrollTargetCust" ref={this.scrollTargetBot} />
         </ul>
-      </ConversationStyles>
+      </ConvoContainer>
     );
   }
 }

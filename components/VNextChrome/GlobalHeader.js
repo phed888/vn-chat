@@ -8,7 +8,7 @@ import DropdownCaret from '../icons/DropdownCaret';
 export default class GlobalHeader extends Component {
   render() {
     return (
-      <GHeader>
+      <GlobalHeaderContainer>
         <VoyLogo />
         <div className="global-controls">
           <IconPhone />
@@ -24,12 +24,12 @@ export default class GlobalHeader extends Component {
             <DropdownCaret />
           </div>
         </div>
-      </GHeader>
+      </GlobalHeaderContainer>
     );
   }
 }
 
-const GHeader = styled.div`
+const GlobalHeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: 60px;
