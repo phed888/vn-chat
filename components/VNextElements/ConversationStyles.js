@@ -1,9 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ConversationPane = styled.div`
   font-size: 14px;
   height: calc(100vh - 305px);
-  /* overflow-y: auto; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -39,8 +38,8 @@ const ConversationPane = styled.div`
     position: absolute;
     left: 0;
     bottom: 0;
-    content: "";
-    background-image: url("../../static/images/icn-chatBot.svg");
+    content: '';
+    background-image: url('../../static/images/icn-chatBot.svg');
     height: 24px;
     width: 24px;
   }
@@ -52,8 +51,8 @@ const ConversationPane = styled.div`
     position: absolute;
     right: 0;
     bottom: 0;
-    content: "";
-    background-image: url("../../static/images/icn-chatBot.svg");
+    content: '';
+    background-image: url('../../static/images/icn-chatBot.svg');
     height: 24px;
     width: 24px;
   }

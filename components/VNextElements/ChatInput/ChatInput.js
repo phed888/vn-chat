@@ -22,14 +22,14 @@ class ChatInput extends Component {
   submitChange = event => {
     event.preventDefault();
     this.setState({ formInput: '' });
-    this.startTyping(1000);
-    // this.props.chatInput(
-    //   this.state.textInput,
-    //   this.props.inputType,
-    //   this.props.msgSource
-    // );
-    // this.setState({ textInput: '' });
-    // this.setState({ formInput: '' });
+    // this.startTyping(1000);
+    this.props.chatInput(
+      this.state.textInput,
+      this.props.inputType,
+      this.props.msgSource
+    );
+    this.setState({ textInput: '' });
+    this.setState({ formInput: '' });
   };
 
   // Display typing indicator after submittin

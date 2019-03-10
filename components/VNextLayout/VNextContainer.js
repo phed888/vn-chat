@@ -127,6 +127,7 @@ export default class VNextContainer extends Component {
         };
         lastMsg.thoughts.push(newThought);
         this.setState({ botConvers: convers });
+        this.botResponse(currentThought.source);
       } else {
         let newThought = {
           msgSource: 'botConvers',
@@ -139,8 +140,29 @@ export default class VNextContainer extends Component {
         };
         convers.push(newThought);
         this.setState({ botConvers: convers });
+        this.botResponse(currentThought.source);
       }
     }
+  };
+
+  botResponse = (message, source) => {
+    console.log('inside botResponse');
+    let convers = [...this.state.botConvers];
+    let newThought = null;
+    if (message === 'x') {
+    } else {
+      newThought = {
+        msgSource: { source },
+        msgType: 'incoming',
+        thoughts: [
+          {
+            thought: "I don't understand - what do you mean?"
+          }
+        ]
+      };
+    }
+    convers.push(newThought);
+    this.setState({ botConvers: convers });
   };
 
   removeLast = whichArray => {
