@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PaneCustomer from './PaneCustomer';
 import PaneChat from './PaneChat';
 import PaneBot from './PaneBot';
+import SmartCard from '../SmartCard/SmartCard';
 
 export default class VNextContainer extends Component {
   constructor(props) {
@@ -60,11 +61,10 @@ export default class VNextContainer extends Component {
       botConvers: [
         {
           msgSource: 'botConvers',
-          msgType: 'outgoing',
+          msgType: 'incoming',
           thoughts: [
             {
-              thought:
-                'Please give me your name so that I can connect you with an agent.'
+              thought: 'Review the conversation history on the left and then proceed to authorize the proposed waiver with the hotel.'
             }
           ]
         },
@@ -73,19 +73,10 @@ export default class VNextContainer extends Component {
           msgType: 'incoming',
           thoughts: [
             {
-              thought: 'Wilo'
+              thought: <SmartCard />
             }
           ]
         },
-        {
-          msgSource: 'botConvers',
-          msgType: 'outgoing',
-          thoughts: [
-            {
-              thought: 'Well, howdy there Wilo!'
-            }
-          ]
-        }
       ]
     };
   }
@@ -180,7 +171,6 @@ export default class VNextContainer extends Component {
   render() {
     return (
       <Container>
-        <PaneCustomer />
         <PaneChat
           chatInput={this.chatInput}
           removeLast={this.removeLast}
@@ -202,5 +192,5 @@ export default class VNextContainer extends Component {
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 24% 38% 38%;
+  grid-template-columns: 50% 50%;
 `;
