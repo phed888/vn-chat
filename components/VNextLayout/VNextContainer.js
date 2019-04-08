@@ -203,4 +203,6 @@ export default class VNextContainer extends Component {
 const Container = styled.div`
   display: grid;
   grid-template-columns: 24% 38% 38%;
+  -webkit-filter: 9px;
+  filter: 9px;
 `;
