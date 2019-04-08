@@ -1,0 +1,30 @@
+[
+    {
+      "msgSource": "botConvers",
+      "msgType": "outgoing",
+      "thoughts": [
+        {
+          "thought":
+            "Please give me your name so that I can connect you with an agent."
+        }
+      ]
+    },
+    {
+      "msgSource": "botConvers",
+      "msgType": "incoming",
+      "thoughts": [
+        {
+          "thought": "Wilo"
+        }
+      ]
+    },
+    {
+      "msgSource": "botConvers",
+      "msgType": "outgoing",
+      "thoughts": [
+        {
+          "thought": "Well, howdy there Wilo!"
+        }
+      ]
+    }
+  ]

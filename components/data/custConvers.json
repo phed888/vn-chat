@@ -1,0 +1,44 @@
+[
+    {
+      "msgSource": "custConvers",
+      "msgType": "outgoing",
+      "thoughts": [
+        {
+          "thought":
+            "Hi, I'm the Expedia virtual assistant, here to help you with your booking needs."
+        },
+        {
+          "thought":
+            "And if I can't help you, I'll connect you to a friendly customer service agent."
+        }
+      ]
+    },
+    {
+      "msgSource": "custConvers",
+      "msgType": "incoming",
+      "thoughts": [
+        {
+          "thought": "I need to talk to an agent about my room."
+        }
+      ]
+    },
+    {
+      "msgSource": "custConvers",
+      "msgType": "outgoing",
+      "thoughts": [
+        {
+          "thought":
+            "Please give me your name so that I can connect you with an agent."
+        }
+      ]
+    },
+    {
+      "msgSource": "custConvers",
+      "msgType": "incoming",
+      "thoughts": [
+        {
+          "thought": "Wilo"
+        }
+      ]
+    }
+  ]
