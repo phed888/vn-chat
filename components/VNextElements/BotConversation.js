@@ -25,7 +25,7 @@ export default class CustConversation extends Component {
           <div className="thoughts">
             {bconvers.thoughts.map((thought, index) => {
               return (
-                <p className="thought" key={index}>
+                <p className={`thought ${bconvers.msgKind}`} key={index}>
                   {thought.thought}
                 </p>
               );

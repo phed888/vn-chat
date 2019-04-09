@@ -34,6 +34,7 @@ const GlobalHeaderContainer = styled.div`
   justify-content: space-between;
   height: 60px;
   align-items: center;
+  grid-column: 1/3;
   .global-controls {
     display: flex;
     align-items: center;

@@ -6,6 +6,7 @@ import styled, {
   createGlobalStyle,
   ThemeProvider
 } from 'styled-components';
+import CustomerBanner from '../components/VNextLayout/CustomerBanner';
 
 class MyApp extends App {
   render() {
@@ -16,6 +17,7 @@ class MyApp extends App {
         <GlobalStyle />
         <GlobalHeader />
         <Tabs />
+        <CustomerBanner />
         <Component />
       </Container>
     );
@@ -43,15 +45,13 @@ const GlobalStyle = createGlobalStyle`
     background-size: cover;
     background-position: center top;
     background-color: #203157;
-    -webkit-filter: 9px;
-    filter: 9px;
   }
   *, *:before, *:after {
     box-sizing: border-box;
   }
   #__next {
     display: grid;
-    grid-template-rows: 60px 52px auto;
+    grid-template-rows: 60px 52px 64px auto;
     align-content: stretch;
     height: 100%
   }

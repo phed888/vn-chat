@@ -7,7 +7,7 @@ class Tabs extends Component {
     super(props);
 
     this.state = {
-      activeTab: 'Wilo'
+      activeTab: 'Chachi Arredondo'
     };
 
     // This binding is necessary to make `this` work in the callback
@@ -32,7 +32,7 @@ class Tabs extends Component {
         />
         <Tab
           active={this.state.activeTab}
-          title="Wilo"
+          title="Chachi Arredondo"
           link="/"
           tabType="tab-title"
           badgeType="badge-bubble"
@@ -50,6 +50,7 @@ const TabBar = styled.ul`
   list-style: none;
   padding-left: 48px;
   margin: 12px 0 0 0;
+  grid-column: 1/3;
   li {
     display: flex;
     background-color: #fff;

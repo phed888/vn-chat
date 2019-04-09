@@ -4,6 +4,7 @@ import PaneCustomer from './PaneCustomer';
 import PaneChat from './PaneChat';
 import PaneBot from './PaneBot';
 import SmartCard from '../SmartCard/SmartCard';
+import CustomerBanner from './CustomerBanner';
 
 export default class VNextContainer extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class VNextContainer extends Component {
         {
           msgSource: 'custConvers',
           msgType: 'outgoing',
+          msgKind: 'text',
           thoughts: [
             {
               thought:
@@ -32,6 +34,7 @@ export default class VNextContainer extends Component {
         {
           msgSource: 'custConvers',
           msgType: 'incoming',
+          msgKind: 'text',
           thoughts: [
             {
               thought: 'I need to talk to an agent about my room.'
@@ -41,6 +44,7 @@ export default class VNextContainer extends Component {
         {
           msgSource: 'custConvers',
           msgType: 'outgoing',
+          msgKind: 'text',
           thoughts: [
             {
               thought:
@@ -51,6 +55,7 @@ export default class VNextContainer extends Component {
         {
           msgSource: 'custConvers',
           msgType: 'incoming',
+          msgKind: 'text',
           thoughts: [
             {
               thought: 'Wilo'
@@ -62,6 +67,7 @@ export default class VNextContainer extends Component {
         {
           msgSource: 'botConvers',
           msgType: 'incoming',
+          msgKind: 'text',
           thoughts: [
             {
               thought:
@@ -72,6 +78,7 @@ export default class VNextContainer extends Component {
         {
           msgSource: 'botConvers',
           msgType: 'incoming',
+          msgKind: 'widget',
           thoughts: [
             {
               thought: <SmartCard />
@@ -194,6 +201,5 @@ export default class VNextContainer extends Component {
 const Container = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
-  -webkit-filter: 9px;
-  filter: 9px;
+  grid-column: 1/3;
 `;

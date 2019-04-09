@@ -30,6 +30,9 @@ const ConversationPane = styled.div`
       margin: 0 0 2px;
       padding: 12px 16px;
     }
+    .thoughts .thought.widget {
+      padding: 0;
+    }
   }
   .incoming {
     padding-left: 32px;
