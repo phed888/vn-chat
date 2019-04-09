@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const PaneHeader = styled.header`
   display: flex;
   align-items: center;
-  padding: 40px 20px 20px;
+  padding: 20px;
   background-color: #fff;
   height: 80px;
   font-size: 16px;

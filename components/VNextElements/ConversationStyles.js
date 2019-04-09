@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ConversationPane = styled.div`
   font-size: 14px;
-  height: calc(100vh - 305px);
+  height: calc(100vh - 369px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

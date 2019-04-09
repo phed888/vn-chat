@@ -20,8 +20,9 @@ export default class CustomerBanner extends Component {
   }
 }
 
-const CustomerBannerContainer = styled.div`
+const CustomerBannerContainer = styled.ul`
   height: 64px;
+  margin: 0;
   align-items: center;
   width: 100%;
   display: flex;

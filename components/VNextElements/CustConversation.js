@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ConvoContainer from './ConversationStyles';
+import ConversationPane from './ConversationStyles';
 
 export default class CustConversation extends Component {
   constructor(props) {
@@ -35,12 +36,12 @@ export default class CustConversation extends Component {
       );
     });
     return (
-      <ConvoContainer>
+      <ConversationPane>
         <ul className="conversation customer">
           {messages}
           <div className="scrollTargetCust" ref={this.scrollTargetCust} />
         </ul>
-      </ConvoContainer>
+      </ConversationPane>
     );
   }
 }
