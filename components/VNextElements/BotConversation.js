@@ -22,10 +22,10 @@ export default class CustConversation extends Component {
     const messages = this.props.botConvers.map((bconvers, index) => {
       return (
         <li key={index} className={`message ${bconvers.msgType}`}>
-          <div className="thoughts">
+          <div className={`thoughts ${bconvers.msgKind}`}>
             {bconvers.thoughts.map((thought, index) => {
               return (
-                <p className={`thought ${bconvers.msgKind}`} key={index}>
+                <p className="thought" key={index}>
                   {thought.thought}
                 </p>
               );
