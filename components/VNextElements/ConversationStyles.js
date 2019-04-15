@@ -30,7 +30,10 @@ const ConversationPane = styled.div`
       margin: 0 0 2px;
       padding: 12px 16px;
     }
-    .thoughts .thought.widget {
+    .thoughts.widget {
+      width: 75%;
+    }
+    .thoughts.widget .thought {
       padding: 0;
     }
   }
@@ -42,7 +45,7 @@ const ConversationPane = styled.div`
     left: 0;
     bottom: 0;
     content: '';
-    background-image: url('../../static/images/icn-chatBot.svg');
+    background-image: url('../../static/images/icn-VA.svg');
     height: 24px;
     width: 24px;
   }
@@ -55,7 +58,7 @@ const ConversationPane = styled.div`
     right: 0;
     bottom: 0;
     content: '';
-    background-image: url('../../static/images/icn-chatBot.svg');
+    background-image: url('../../static/images/icn-traveler.svg');
     height: 24px;
     width: 24px;
   }
@@ -67,10 +70,10 @@ const ConversationPane = styled.div`
       background-color: #ffffff;
     }
     .thoughts:first-child .thought {
-      border-radius: 8px 8px 0 0;
+      border-radius: 8px 8px 8px 0;
     }
     .thoughts:last-child .thought {
-      border-radius: 0 0 8px 0;
+      border-radius: 0 8px 8px 0;
     }
     .thoughts:only-child .thought {
       border-radius: 8px 8px 8px 0;
@@ -81,10 +84,10 @@ const ConversationPane = styled.div`
       background-color: #dddddd;
     }
     .thoughts .thought:last-child {
-      border-radius: 0 0 0 8px;
+      border-radius: 8px 0 0 8px;
     }
     .thoughts .thought:first-child {
-      border-radius: 8px 8px 0 0;
+      border-radius: 8px 8px 0 8px;
     }
     .thoughts .thought:only-child {
       border-radius: 8px 8px 0 8px;

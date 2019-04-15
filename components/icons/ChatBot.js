@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class ChatBot extends Component {
   render() {
     return (
-      <svg height="40" width="40" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1.538)"><path d="M15.9 12.8c-.7 0-1.3.5-1.2 1.1 0 .6.6 1.1 1.3 1.1.7 0 1.2-.5 1.2-1.1-.1-.6-.7-1.1-1.3-1.1M12.8 20c2.2 0 4.1-1.5 4.3-3.5H8.6c.2 2 2 3.5 4.2 3.5m-3-5c.7 0 1.3-.5 1.3-1.1 0-.6-.6-1.1-1.2-1.1-.7 0-1.2.5-1.2 1.1-.1.6.4 1.1 1.1 1.1"/><path d="M20.6 17.3h-2c-.4 2.4-2.7 4.3-5.6 4.3h-.4c-2.8 0-5.1-1.9-5.6-4.3H5v-6h2V7.6h5.8V5.4c-.6-.1-1.1-.6-1.1-1.2 0-.7.6-1.2 1.4-1.2s1.4.6 1.4 1.2-.5 1.1-1.1 1.2v2.2h5.4v3.6h1.9v6.1zM13 0C5.8 0 0 5.8 0 13s5.8 13 13 13 13-5.8 13-13S20.2 0 13 0z" fill="#4a4a4a" fillRule="evenodd"/></g></svg>
+      <svg viewBox="0 0 48 48"   fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit="1.414"><circle cx="24" cy="24" r="2" fill="#00001e" fillOpacity=".059"/><use xlinkHref="#_Image1" width="36" height="36"/><clipPath id="a"><path d="M17.876 14.994A4.003 4.003 0 0 1 14 18h-4a4.003 4.003 0 0 1-3.876-3.006A1.25 1.25 0 0 1 5 13.75v-1.5a1.25 1.25 0 0 1 1.124-1.244A4.003 4.003 0 0 1 10 8h1.5V6.866A1 1 0 0 1 12 5h.5a1 1 0 0 1 .5 1.866V8h1a4.003 4.003 0 0 1 3.876 3.006A1.25 1.25 0 0 1 19 12.25v1.5a1.25 1.25 0 0 1-1.124 1.244zM9.75 11.5a.75.75 0 0 0-.75.75v1a.75.75 0 0 0 1.5 0v-1a.75.75 0 0 0-.75-.75zm4.5 0a.75.75 0 0 0-.75.75v1a.75.75 0 0 0 1.5 0v-1a.75.75 0 0 0-.75-.75z"/></clipPath><g clipPath="url(#a)"><path fill="#00001e" fillOpacity=".439" d="M2.5 2.5h19v18h-19z"/></g></svg>
     )
   }
 }

@@ -61,6 +61,17 @@ export default class VNextContainer extends Component {
               thought: 'Wilo'
             }
           ]
+        },
+        {
+          msgSource: 'custConvers',
+          msgType: 'outgoing',
+          msgKind: 'text',
+          thoughts: [
+            {
+              thought:
+                'Here is the check-in and check-out information for Westin Hotel Seattle: • test'
+            }
+          ]
         }
       ],
       botConvers: [
@@ -71,7 +82,7 @@ export default class VNextContainer extends Component {
           thoughts: [
             {
               thought:
-                'Review the conversation history on the left and then proceed to authorize the proposed waiver with the hotel.'
+                'Here is the check-in and check-out information for Westin Hotel Seattle'
             }
           ]
         },
